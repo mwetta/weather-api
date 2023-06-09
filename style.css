@@ -22,8 +22,13 @@ h1 {
 
 body {
     font-family: 'Rubik', sans-serif;
+    background-color: var(--apricot);
 }
 
 .button {}
 
 .input {}
+
+#content {}
+
+#form {}
