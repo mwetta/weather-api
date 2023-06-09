@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Trirong:ital,wght@0,100;0,300;0,400;1,100;1,200&display=swap');
+
+:root {
+    /* CSS HEX */
+    --delft-blue: #23395bff;
+    --columbia-blue: #accbe1ff;
+    --rose-taupe: #96616bff;
+    --apricot: #ffcab1ff;
+    --tiffany-blue: #b2e4dbff;
+
+    /* CSS HSL */
+    --delft-blue: hsla(216, 44%, 25%, 1);
+    --columbia-blue: hsla(205, 47%, 78%, 1);
+    --rose-taupe: hsla(349, 21%, 48%, 1);
+    --apricot: hsla(19, 100%, 85%, 1);
+    --tiffany-blue: hsla(169, 48%, 80%, 1);
+}
+
+h1 {
+    font-family: 'Trirong', serif;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+.button {}
+
+.input {}
