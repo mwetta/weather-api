@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Trirong:ital,wght@0,100;0,300;0,400;1,100;1,200&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* CSS HEX */
     --delft-blue: #23395bff;
@@ -16,8 +20,15 @@
     --tiffany-blue: hsla(169, 48%, 80%, 1);
 }
 
-h1 {
+#condition {
     font-family: 'Trirong', serif;
+    font-size: 3rem;
+    color: var(--delft-blue);
+}
+
+h2 {
+    /* font-family: 'Trirong', serif; */
+    color: var(--rose-taupe);
 }
 
 body {
@@ -25,10 +36,68 @@ body {
     background-color: var(--apricot);
 }
 
-.button {}
-
 .input {}
 
-#content {}
-
 #form {}
+
+.modal {}
+
+#content {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.white {
+    filter: invert(100%) sepia(0%) saturate(7487%) hue-rotate(327deg) brightness(106%) contrast(101%);
+}
+
+.small {
+    height: 20px;
+}
+
+/* Search Sytling */
+input#new-location-search-input {
+    border: none;
+    background-color: hsl(225, 24%, 93%);
+    width: 95%;
+}
+
+button#new-location-search-icon {
+    background-color: transparent;
+    border: none;
+}
+
+#search {
+    grid-column: 2 / 6;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#main-weather {
+    grid-column: 2 / 6;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    padding: 10px;
+}
+
+#condition,
+#location,
+#last-updated {
+    padding-left: 30px;
+}
