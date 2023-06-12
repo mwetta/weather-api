@@ -1,4 +1,5 @@
 // import getData from './dataFetcher.js';
+import './style.css'
 
 //Fetch weather data
 const getData = (() => {
@@ -6,7 +7,6 @@ const getData = (() => {
         try {
             const weather = await fetch(`https://api.weatherapi.com/v1/current.json?key=2924c3986bf946cc828152529231805&q=${city}`, {mode: 'cors'});
             return weather.json()
-
         } catch (err) {
             console.log(err)
         }
@@ -26,9 +26,32 @@ const jsonProcessor = (() => {
         } catch (err) {
             console.log(err);
         }
-        //TODO: drill down to find out how to transform
     }
     return {processWeatherData}
 })();
 
+
 jsonProcessor.processWeatherData('london');
+
+const uiController = (() => {
+
+    
+    const writeMain = (content) => {
+        let main = document.createElement('div');
+        main.setAttribute('id', 'main');
+        content.appendChild(main);
+        writeDefault();
+    }
+
+    const clearMain = () => {
+        let main = document.getElementById('main');
+            while (main.firstChild) {
+                main.removeChild(main.firstChild);
+            } 
+    }
+
+    const writeForm = () => {
+
+    }
+
+})();
