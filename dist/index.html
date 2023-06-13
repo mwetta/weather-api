@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
     <title>Weather API</title>
 </head>
 
@@ -37,12 +37,18 @@
                 <div id="last-updated">Last updated 2023-06-12 17:30</div>
             </div>
 
-
-
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Enter a new location</h2>
+                    <form>
+                        <input type="text" id="new-location">
+                        <button type="submit" id="get-weather" class="standard-width">Get Weather</button>
+                    </form>
+                </div>
+            </div>
 
         </div>
-
-    </div>
 
 </body>
 
