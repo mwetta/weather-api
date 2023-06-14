@@ -124,9 +124,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _jsonProcessor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jsonProcessor.js */ \"./src/jsonProcessor.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _uiController_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./uiController.js */ \"./src/uiController.js\");\n// import getData from './dataFetcher.js';\n\n\n\n\n\n\nlet london = await _jsonProcessor_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].processWeatherData('london');\n// console.log(london);\n\n// let result = await uiController.updateLocationDipslay(london);\n\n// TODO: make modal a module\nconst modal = document.getElementById(\"myModal\");\nconst btn = document.getElementById(\"new-location-search-icon\");\nconst span = document.getElementsByClassName(\"close\")[0];\nconst newLocation = document.getElementById(\"new-location\");\n\nbtn.onclick = function() {\n    modal.style.display = \"block\";\n  }\n  \n  span.onclick = function() {\n    modal.style.display = \"none\";\n  }\n  \n  window.onclick = function(event) {\n    if (event.target == modal) {\n      modal.style.display = \"none\";\n    }\n  }\n\n  newLocation.addEventListener('click', function () {\n    //get new weather data\n    //print new weather data\n  })\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://weather-api/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _jsonProcessor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jsonProcessor.js */ \"./src/jsonProcessor.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _uiController_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./uiController.js */ \"./src/uiController.js\");\n// import getData from './dataFetcher.js';\n\n\n\n\n\n_jsonProcessor_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].processWeatherData('bangkok');\n\n// TODO: make modal a module\nconst btn = document.getElementById(\"new-location-search-icon\");\nconst input = document.getElementById(\"new-location-search-input\");\n\n\n\nbtn.onclick = function() {\n    console.log(input.value);\n    _jsonProcessor_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].processWeatherData(`${input.value}`);\n    input.value = '';\n  }\n  \n\n//# sourceURL=webpack://weather-api/./src/index.js?");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _dataFetcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataFetcher */ \"./src/dataFetcher.js\");\n/* harmony import */ var _uiController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./uiController */ \"./src/uiController.js\");\n\n\n\nconst jsonProcessor = (() => {\n    const fetchWeatherData = async function(city) {\n        try {\n            let result = await _dataFetcher__WEBPACK_IMPORTED_MODULE_0__[\"default\"].fetchWeatherData(`${city}`);\n            console.log(result);\n            return result\n        } catch (err) {\n            console.log(err);\n        }\n    }\n\n    const processWeatherData = async function(city) {\n        let result = await fetchWeatherData(city);\n        let location = result[\"location\"];\n        let current = result[\"current\"];\n        current[\"name\"] = location.name.toUpperCase();\n        current[\"condition\"] = current.condition.text;\n        console.log(current.condition.text);\n        console.log(current);\n        let spans = Array.from(_uiController__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getElements('span'));\n        spans.forEach(span => {\n            let text = current[`${span.id}`];\n            console.log(text);\n            _uiController__WEBPACK_IMPORTED_MODULE_1__[\"default\"].setText(span, text);\n        })\n    }\n\n\n    return {processWeatherData}\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (jsonProcessor);\n\n//# sourceURL=webpack://weather-api/./src/jsonProcessor.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _dataFetcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataFetcher */ \"./src/dataFetcher.js\");\n/* harmony import */ var _uiController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./uiController */ \"./src/uiController.js\");\n\n\n\nconst jsonProcessor = (() => {\n    const fetchWeatherData = async function(city) {\n        try {\n            let result = await _dataFetcher__WEBPACK_IMPORTED_MODULE_0__[\"default\"].fetchWeatherData(`${city}`);\n            console.log(result);\n            return result\n        } catch (err) {\n            console.log(err);\n        }\n    }\n\n    const processWeatherData = async function(city) {\n        let result = await fetchWeatherData(city);\n        let location = result[\"location\"];\n        let current = result[\"current\"];\n        current[\"name\"] = location.name.toUpperCase();\n        current[\"condition\"] = current.condition.text;\n        current[\"condition-code\"] = current.condition.code;\n        // console.log(current.condition.text);\n        // console.log(current);\n        let spans = Array.from(_uiController__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getElements('span'));\n        let keys = Object.keys(current);\n        spans.forEach(span => {\n            if (keys.includes(`${span.id}`)) {\n                let text = current[`${span.id}`];\n                _uiController__WEBPACK_IMPORTED_MODULE_1__[\"default\"].setText(span, text);\n            }\n            \n            // console.log(text);\n            \n        })\n    }\n\n\n    return {processWeatherData}\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (jsonProcessor);\n\n//# sourceURL=webpack://weather-api/./src/jsonProcessor.js?");
 
 /***/ }),
 
@@ -156,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _modalController_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modalController.js */ \"./src/modalController.js\");\n\n\nconst uiController = (() => {\n\n    const getDiv = (item) => {\n        console.log(item);\n        let object = document.querySelectorAll('div');\n        for (const element of object.entries()) {\n            if (element[1].id === item){\n                return element[1]\n            }\n        }\n    }\n\n    const getElements = (type) => {\n        let elements = document.querySelectorAll(`${type}`);\n        return elements\n    }\n\n    const setText = (element, text) => {\n        console.log(element);\n        element.innerText = text;\n    }\n\n    const updateLocationDipslay = (result) => {\n        console.log(result);\n        let current = result[\"current\"];\n        for (const item in current) {\n            console.log(item);\n            \n            // getDiv(item);\n        }\n        let location = result[\"location\"];\n        \n    }\n    \n    \n    return {setText, updateLocationDipslay, getElements}\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (uiController);\n\n//# sourceURL=webpack://weather-api/./src/uiController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _modalController_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modalController.js */ \"./src/modalController.js\");\n\n\nconst uiController = (() => {\n\n    const getDiv = (item) => {\n        console.log(item);\n        let object = document.querySelectorAll('div');\n        for (const element of object.entries()) {\n            if (element[1].id === item){\n                return element[1]\n            }\n        }\n    }\n\n    const getElements = (type) => {\n        let elements = document.querySelectorAll(`${type}`);\n        return elements\n    }\n\n    const setText = (element, text) => {\n        // console.log(element);\n        element.innerText = text;\n    }\n\n    const updateLocationDipslay = (result) => {\n        console.log(result);\n        let current = result[\"current\"];\n        for (const item in current) {\n            console.log(item);\n            \n            // getDiv(item);\n        }\n        let location = result[\"location\"];\n        \n    }\n    \n    \n    return {setText, updateLocationDipslay, getElements}\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (uiController);\n\n//# sourceURL=webpack://weather-api/./src/uiController.js?");
 
 /***/ })
 
@@ -187,75 +187,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	(() => {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = (queue) => {
-/******/ 			if(queue && !queue.d) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach((fn) => (fn.r--));
-/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then((r) => {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, (e) => {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = x => {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}));
-/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = 1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise((resolve, rej) => {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 			module.exports = promise;
-/******/ 			body((deps) => {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = () => (currentDeps.map((d) => {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}))
-/******/ 				var promise = new Promise((resolve) => {
-/******/ 					fn = () => (resolve(getResult));
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 			queue && (queue.d = 0);
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules

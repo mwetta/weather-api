@@ -18,13 +18,19 @@ const jsonProcessor = (() => {
         let current = result["current"];
         current["name"] = location.name.toUpperCase();
         current["condition"] = current.condition.text;
-        console.log(current.condition.text);
-        console.log(current);
+        current["condition-code"] = current.condition.code;
+        // console.log(current.condition.text);
+        // console.log(current);
         let spans = Array.from(uiController.getElements('span'));
+        let keys = Object.keys(current);
         spans.forEach(span => {
-            let text = current[`${span.id}`];
-            console.log(text);
-            uiController.setText(span, text);
+            if (keys.includes(`${span.id}`)) {
+                let text = current[`${span.id}`];
+                uiController.setText(span, text);
+            }
+            
+            // console.log(text);
+            
         })
     }
 
