@@ -53,6 +53,10 @@ body {
     filter: invert(100%) sepia(0%) saturate(7487%) hue-rotate(327deg) brightness(106%) contrast(101%);
 }
 
+.grayscale {
+    filter: grayscale(1);
+}
+
 .small {
     height: 20px;
 }
