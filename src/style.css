@@ -92,7 +92,7 @@ button#new-location-search-icon {
     justify-content: end;
 }
 
-#condition {
+#condition-display {
     font-size: 1.2rem;
     color: var(--delft-blue);
 }

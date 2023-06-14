@@ -5,34 +5,12 @@ import uiController from './uiController.js';
 
 
 
+let london = await jsonProcessor.processWeatherData('london');
+// console.log(london);
 
+// let result = await uiController.updateLocationDipslay(london);
 
-jsonProcessor.processWeatherData('london');
-
-// const uiController = (() => {
-
-    
-//     const writeMain = (content) => {
-//         let main = document.createElement('div');
-//         main.setAttribute('id', 'main');
-//         content.appendChild(main);
-//         writeDefault();
-//     }
-
-//     const clearMain = () => {
-//         let main = document.getElementById('main');
-//             while (main.firstChild) {
-//                 main.removeChild(main.firstChild);
-//             } 
-//     }
-
-//     const writeForm = () => {
-
-//     }
-
-// })();
-
-
+// TODO: make modal a module
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("new-location-search-icon");
 const span = document.getElementsByClassName("close")[0];
@@ -53,5 +31,6 @@ btn.onclick = function() {
   }
 
   newLocation.addEventListener('click', function () {
+    //get new weather data
     //print new weather data
   })

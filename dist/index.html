@@ -21,20 +21,21 @@
             <div id="icon"><img src="../src/icons/weather-solid-white/svg/tstorms.svg" alt="" srcset="" width="90%">
             </div>
             <div id="location">
-                <div id="condition">Patchy light rain with thunder</div>
+                <div id="condition-display"><span id="condition">Patchy light rain with thunder</span></div>
                 <div id="location-name">
-                    <h2>LONDON</h2>
+                    <h2><span id="name">LONDON</span></h2>
                 </div>
             </div>
             <div id="feels-like-container">
                 <div id="feels-like-title">Feels like</div>
-                <div id="feels-like">63 &deg; F</div>
+                <div id="feels-like"><span id="feelslike_f"></span>&deg; F</div>
             </div>
             <div id="details">
-                <div id="actual-temp">Actual temp: 17 / 62.6</div>
-                <div id="wind">Wind: 5 MPH</div>
-                <div id="humidity">Humidity: 63%</div>
-                <div id="last-updated">Last updated 2023-06-12 17:30</div>
+                <div id="actual-temp">Actual temp: <span id="temp_f"></span> &deg; F / <span id="temp_c"></span>&deg; C
+                </div>
+                <div id="wind">Wind: <span id="wind_mph"></span> MPH</div>
+                <div id="humidity-display">Humidity: <span id="humidity"></span>%</div>
+                <div id="last-updated">Last updated <span id="last_updated"></span></div>
             </div>
 
             <div id="myModal" class="modal">
