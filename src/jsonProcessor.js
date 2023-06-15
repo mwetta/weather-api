@@ -12,6 +12,25 @@ const jsonProcessor = (() => {
         })         
         return weatherIconCodes[`${code}`];
     }
+
+    const lookupWeatherConditionFileName = (hour, code) => {
+        if (hour > 6 && hour < 19) {
+            let weatherIconCodes = {};
+            weatherConditions.forEach(condition => {
+                weatherIconCodes[`${condition.code}`] = condition["day-file"];
+            })         
+            return weatherIconCodes[`${code}`];
+        } else {
+            let weatherIconCodes = {};
+            weatherConditions.forEach(condition => {
+                weatherIconCodes[`${condition.code}`] = condition["night-file"];
+            })         
+            return weatherIconCodes[`${code}`];
+        }
+
+    }
+
+    
     const fetchWeatherData = async function(city) {
         try {
             let result = await getData.fetchWeatherData(`${city}`);
@@ -27,12 +46,18 @@ const jsonProcessor = (() => {
         let location = result["location"];
         let current = result["current"];
         console.log(current);
-        console.log(current["last_updated_epoch"]);
-        let hour = format(new Date(location["localtime_epoch"] * 1000), 'H');
+        console.log(location["localtime_epoch"]);
+        let hour = format(new Date(location["localtime_epoch"] * 1000), 'MM/dd/yyyy HH:mm');
         console.log(hour);
-        //pull out icon code
-        let iconCode = lookupWeatherConditionIconCode(`${current.condition.code}`);
-        uiController.setIcon(hour, iconCode);
+
+        //TODO: pull out hour from string and use that as hour instead
+        console.log(current["last_updated_epoch"]);
+        let localHour = format(new Date(current["last_updated_epoch"] * 1000), 'MM/dd/yyyy HH:mm');
+        console.log(localHour);
+        //pull out file name
+        uiController.setIcon(lookupWeatherConditionFileName(hour,`${current.condition.code}`));
+
+
         //format basic data received from JSON
         current["name"] = location.name.toUpperCase();
         current["condition"] = current.condition.text;
