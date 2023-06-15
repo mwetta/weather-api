@@ -1,7 +1,5 @@
-// import getData from './dataFetcher.js';
 import jsonProcessor from './jsonProcessor.js';
 import './style.css'
-import uiController from './uiController.js';
 
 
 jsonProcessor.processWeatherData('bangkok');
