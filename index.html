@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>Weather API</title>
+</head>
+
+<body>
+    <div id="content">
+        <div id="main">
+            <div id="search">
+                <input class="text" type="search" id="new-location-search-input">
+                <button id="new-location-search-icon">
+                    <img class="white" src="../src/icons/search.svg" alt="Search">
+                </button>
+            </div>
+            <div id="icon"><img class="grayscale" id="condition-icon" src="" alt="" srcset="" width="90%">
+            </div>
+            <div id="location">
+                <div id="condition-display"><span class="current" id="condition"></span></div>
+                <div id="location-name">
+                    <h2><span class="current" id="name"></span></h2>
+                </div>
+            </div>
+            <div id="feels-like-container">
+                <div id="feels-like-title">Feels like</div>
+                <div id="feels-like"><span class="current" id="feelslike_f"></span>&deg; F</div>
+            </div>
+            <div id="details">
+                <div id="actual-temp">Actual temp: <span class="current" id="temp_f"></span> &deg; F / <span
+                        class="current" id="temp_c"></span>&deg; C
+                </div>
+                <div id="wind">Wind: <span class="current" id="wind_mph"></span> MPH</div>
+                <div id="humidity-display">Humidity: <span class="current" id="humidity"></span>%</div>
+                <div id="last-updated">Last updated <span class="current" id="last_updated"></span></div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>
