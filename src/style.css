@@ -9,15 +9,15 @@
     --delft-blue: #23395bff;
     --columbia-blue: #accbe1ff;
     --rose-taupe: #96616bff;
-    --apricot: #ffcab1ff;
+    --apricot: #ffcab1;
     --tiffany-blue: #b2e4dbff;
 
     /* CSS HSL */
-    --delft-blue: hsla(216, 44%, 25%, 1);
-    --columbia-blue: hsla(205, 47%, 78%, 1);
-    --rose-taupe: hsla(349, 21%, 48%, 1);
-    --apricot: hsla(19, 100%, 85%, 1);
-    --tiffany-blue: hsla(169, 48%, 80%, 1);
+    --delft-blue: #243a5c;
+    --columbia-blue: #adcbe1;
+    --rose-taupe: #94616a;
+    --apricot: #ffcbb3;
+    --tiffany-blue: #b4e4dc;
 }
 
 
